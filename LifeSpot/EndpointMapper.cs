@@ -78,21 +78,9 @@ namespace LifeSpot
             builder.MapGet("/about", async context =>
             {
                 var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "about.html");
+                string sliderHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "slider.html"));
 
                 // Загружаем шаблон страницы, вставляя в него элементы
-                var html = new StringBuilder(await File.ReadAllTextAsync(viewPath))
-                    .Replace("<!--SIDEBAR-->", sideBarHtml)
-                    .Replace("<!--FOOTER-->", footerHtml);
-
-                await context.Response.WriteAsync(html.ToString());
-            });
-
-
-            string sliderHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "slider.html"));
-            builder.MapGet("/about", async context =>
-            {
-                var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "about.html");
-
                 var html = new StringBuilder(await File.ReadAllTextAsync(viewPath))
                     .Replace("<!--SIDEBAR-->", sideBarHtml)
                     .Replace("<!--FOOTER-->", footerHtml)
