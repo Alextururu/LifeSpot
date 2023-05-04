@@ -8,30 +8,14 @@
     <script defertype="text/javascript" src="../Static/JS/index.js"></script>
 
     <script>
-        // Проверка на возраст
-        //checkAge();
-
-        // сохранение сессии
-        handleSession()
-
-        // вывод данных сессии в консоль
-        sessionLog();
+        // обработка сессии
+        handleSession(logger, checker /* Коллбек-функции */);
 
         // функция для получения пользовательского ввода
         const inputParseFunction = function () {
             return document.getElementsByTagName('input')[0].value.toLowerCase();
         }
     </script>
-    <script>
-        // let session = handleSession();
-        // sessionLog(session)
-
-        // Функция объявлена через declaration
-        const inputParseFunction = function () {
-            return document.getElementsByTagName('input')[0].value.toLowerCase();
-        }
-    </script>
-
 
 </head>
 <body>
